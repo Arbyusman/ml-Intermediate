@@ -1,0 +1,268 @@
+Rangkuman Berkenalan dengan Time Series
+---------------------------------------
+
+### Pengenalan Time Series
+
+Secara singkat time series merupakan penerapan teknik dari ekstrapolasi, sedangkan regression adalah penerapan dari interpolasi. _Hmmm_, apa _tuh bang_?
+
+Interpolasi dan ekstrapolasi merupakan sebuah teknik statistik yang dapat menebak atau memprediksi suatu nilai data dengan memperhatikan data lain yang kita miliki. Interpolasi adalah sebuah teknik yang dapat mencari suatu nilai variabel pada rentang data yang diketahui, sedangkan ekstrapolasi merupakan teknik menemukan nilai suatu variabel di luar rentang data yang sudah diketahui.
+
+Time series dan regresi merupakan metode yang dapat melakukan analisis prediktif, tetapi keduanya memiliki asumsi, teknik, dan implementasi yang berbeda. Secara singkat, time series membutuhkan data yang tersusun dan bergantung pada suatu rentang waktu, sedangkan regresi memiliki data yang independen dan bersifat acak. Selain itu, time series lebih cocok untuk meramalkan dan mendeteksi pola pada data temporal, sedangkan regresi lebih cocok untuk memperkirakan dan menjelaskan pengaruh atau hubungan variabel terhadap suatu hasil.
+
+Dengan kondisi yang serupa tapi tak sama, lantas kapan kita harus menggunakan metode time series? Ketika memilih sebuah metode analisis prediktif yang tepat, penting untuk kita mempertimbangkan karakteristik dan tujuan dari data yang dimiliki. Berikut pertimbangan yang dapat Anda pikirkan untuk memilih metode prediktif.
+
+1.  Pastikan terlebih dahulu apakah data yang Anda miliki tersusun dengan baik dan bergantung pada suatu waktu atau independen dan acak? 
+    
+2.  Pertimbangkan apakah Anda ingin menyelesaikan permasalahan dengan rentang waktu tertentu atau memperkirakan efek variabel pada satu waktu?
+    
+3.  Anda harus memperhatikan pola, tren, atau hubungan dalam data tersebut. Selain itu, Anda juga perlu memperhatikan banyak data, keandalan dan konsistensi data.
+    
+
+Perhatikan batasan dan sudut pandang dari setiap metode serta kecocokan dari output yang diberikan dengan hasil yang diinginkan.
+
+### Machine Learning pada Time Series
+
+Seiring berkembangnya teknologi, sekarang manusia dapat melakukan forecasting menggunakan machine learning atau deep learning tanpa harus melakukan perhitungan secara manual. Oleh karena itu, kita dapat melakukan pekerjaan dengan lebih cepat dan efektif.
+
+Machine learning forecasting memiliki beberapa kelebihan salah satunya adalah hasil yang lebih akurat karena dapat terhindar dari kesalahan manusia (_human error_) dalam melakukan perhitungan.
+
+Namun, dengan menggunakan machine learning tentunya ada _trade-off_ juga. Kekurangan dari machine learning adalah membutuhkan resource yang cukup mahal karena kita harus membeli sebuah perangkat yang dapat memproses banyak data dalam waktu yang singkat. 
+
+Tentunya, semakin mahal sumber daya yang Anda gunakan, semakin cepat juga proses perhitungan yang dilakukan oleh komputer. Sehingga dengan harga yang dikeluarkan akan sebanding atau bahkan lebih banyak benefit yang diterima.
+
+Dengan menggunakan machine learning, kita dapat memproses nilai menggunakan algoritma yang dapat mempelajari pola data dan melakukan prediksi dalam rentang waktu tertentu. Machine learning akan memproses data yang Anda miliki menyesuaikan dengan algoritma yang sudah ditentukan.
+
+### Tipe-Tipe Time Series
+
+Secara umum time series terbagi menjadi dua kelompok besar yaitu _univariate_ dan _multivariate_. Mari kita bahas keduanya secara lebih mendalam.
+
+1.  _**Univariate Time Series**_Univariate time series biasanya digunakan ketika Anda ingin membuat suatu nilai prediksi dari satu variabel, terutama ketika ada data historis yang tersedia untuk variabel tersebut. Teknik ini sangat umum dan mendasar karena sering diterapkan secara umum di berbagai bidang seperti ekonomi, keuangan, prakiraan cuaca, prakiraan permintaan dalam manajemen rantai pasokan, dan lain sebagainya.
+    
+2.  _**Multivariate Time Series**_Seperti namanya, multivariate time series memiliki lebih dari satu variabel data pada dataset time series yang akan di analisis. Setiap variabel tidak hanya bergantung pada nilai masa lalunya (histori), tetapi juga memiliki ketergantungan atau hubungan dengan variabel lainnya. Hubungan ini digunakan untuk melakukan prediksi atau meramalkan nilai-nilai yang akan datang. Kedengarannya rumit, ya? Mari kita perjelas lagi.Contoh sebelumnya pada kasus univariate, kita hanya menggunakan suhu sebagai data yang akan diprediksi tanpa mempertimbangkan faktor lainnya. Hal ini menyebabkan akurasi yang dihasilkan hanya berfokus pada pola suhu yang terjadi berdasarkan histori yang ada. Untuk melakukan forecasting yang lebih kompleks dan banyak variabel atau faktor eksternal yang memiliki dampak teknik, multivariate akan lebih menghasilkan prediksi yang lebih baik.
+    
+
+Selain univariate dan multivariate, time series juga dapat dibedakan lagi berdasarkan pola datanya. Pola pertama dikenal sebagai tren di mana data-data pada time series bergerak pada arah yang spesifik seperti tren menaik atau menurun.
+
+Pola lainnya disebut time series musiman (_seasonal_). Pada time series, pola ini terdapat pola yang berulang pada interval tertentu. Contoh time series ini adalah data temperatur setiap harinya. Pada musim dingin temperatur berada di titik terendah; beranjak ke musim hujan temperatur semakin naik; sementara pada musim panas temperatur berada pada posisi tertinggi.
+
+Lalu, ada _Noisy time series_. Time series seperti ini banyak mengandung noise atau data random yang tidak membantu dalam proses analisis. Kenapa demikian? Sederhana saja karena tidak ada pola yang dapat dibaca dan dipelajari dengan pasti dari time series seperti ini.
+
+Kemudian ada time series _stationary_ dan _non-stationary_. Pada time series bertipe stationary, pola-polanya seragam. Contohnya pada grafik Hukum Moore, pola pada time series terus menaik dan tidak pernah turun.
+
+Namun, pada time series non stationary, pola-pola pada time series tidak seragam. Contohnya pada data indeks pasar saham DOW di bawah. Perubahan pola tersebut dapat disebabkan oleh suatu skandal atau gelembung ekonomi (_economic bubble_) yang pecah.
+
+### Data Preprocessing untuk Time Series
+
+Data processing adalah tahapan penting dalam pembangunan model time series forecasting. Tujuan utamanya adalah untuk membersihkan, menyusun, dan mempersiapkan data sehingga model forecasting dapat bekerja dengan baik. Berikut beberapa tujuan dan manfaat dari data processing untuk time series forecasting.
+
+1.  **Membersihkan data:** data mentah sering kali memiliki noise, nilai yang hilang, atau outlier yang dapat mempengaruhi kualitas prediksi. Dengan melakukan data processing, Anda dapat membersihkan data ini untuk meningkatkan keakuratan model.
+    
+2.  **Menyusun data:** data time series sering kali memiliki format yang kompleks, seperti tanggal dan waktu, yang perlu diatur dengan benar agar sesuai dengan kebutuhan model. Data processing membantu menyusun data ini menjadi format yang sesuai untuk analisis.
+    
+3.  **Menangani nilai yang hilang:** kadang-kadang data time series memiliki nilai yang hilang sehingga dapat mengganggu analisis dan prediksi. Data processing memungkinkan Anda untuk menangani nilai yang hilang dengan cara yang sesuai, seperti interpolasi atau pengisian nilai rata-rata.
+    
+4.  **Menyederhanakan data:** terkadang, data time series dapat memiliki dimensi yang besar atau variabel yang tidak relevan. Dengan melakukan data processing, Anda dapat menyederhanakan data ini untuk fokus pada informasi yang paling penting untuk forecasting.
+    
+5.  **Normalisasi dan penskalaan:** proses normalisasi dan penskalaan dapat membantu memperbaiki performa model, terutama jika fitur-fitur dalam data memiliki skala yang berbeda-beda.
+    
+6.  **Ekstraksi fitur:** data processing dapat melibatkan ekstraksi fitur dari data time series yang dapat membantu meningkatkan kemampuan prediktif model. Misalnya, ekstraksi pola, tren, atau musiman dari data.
+    
+7.  **Pemilihan fitur:** memilih fitur-fitur yang paling relevan dapat membantu meningkatkan kinerja model dan mengurangi kompleksitasnya.
+    
+8.  **Validasi dan pembagian data:** data processing juga melibatkan validasi data untuk memastikan keandalan dan konsistensinya. Selain itu, membagi data menjadi set pelatihan dan pengujian yang sesuai adalah langkah penting dalam proses ini.
+    
+
+Dengan melakukan data processing yang tepat, Anda dapat mempersiapkan data time series dengan baik sehingga model forecasting dapat memberikan hasil prediksi yang akurat dan berguna.
+
+Hal pertama yang perlu kita lakukan setelah data siap adalah membagi data time series menjadi data training dan testing. Pembagian data pada time series dilakukan dengan membaginya menjadi ke dalam 2 periode yakni periode training dan periode validation. Dengan membagi data seperti ini, kita mendapat gambaran prediksi dari model.
+
+_For your information_, saat membagi data pada time series yang bersifat seasonal, kita perlu membagi sesuai musim yang ada. Contohnya data penjualan bulanan. Untuk periode training dan validation, datanya harus dalam satuan bulanan bukan mingguan atau harian. Misalnya untuk periode validasi, gunakan data dua bulan terakhir, bukan data tiga minggu terakhir. 
+
+Kemudian, sama seperti kasus machine learning pada umumnya, kita harus membagi data kita menjadi atribut dan label. Bagaimana kita melakukannya pada data time series? Pertama, kita mengambil sebagian kecil dari data yang dapat disebut _window_ atau biasa disebut _windowed dataset_. 
+
+Sebuah window dapat berisi sebanyak N data, atau ukuran window dapat kita tentukan sebesar interval waktu tertentu misalnya satu minggu, empat hari, dan lain sebagainya. Sebelum kita masuk ke kode, mari kita asumsikan memiliki sebuah deret data dan ingin melakukan prediksi dengan menggunakan data tujuh hari sebelumnya untuk memprediksi satu hari selanjutnya seperti berikut.
+
+\[0, 1, 2, 3, 4, 5, 6\] -> \[7\]
+
+\[1, 2, 3, 4, 5, 6, 7\] -> \[8\]
+
+\[2, 3, 4, 5, 6, 7, 8\] -> \[9\]
+
+Ketika kita menggunakan data yang lebih banyak, tentunya akan sulit untuk melihat pergeseran secara menyeluruh. Dengan menggunakan windowing data sebanyak n akan terus bergeser setiap langkah yang sudah ditentukan atau biasa disebut dengan _stride_. _Stride_ memiliki nama lain pada time series yaitu _window slide_. Teknik ini digunakan untuk melakukan analisis data time series dengan membagi data ke dalam window dan memproses setiap window secara independen. Hal ini sangat berguna untuk tugas-tugas seperti forecasting yang mengharuskan Anda untuk memperhitungkan hubungan antara titik-titik data yang berdekatan. 
+
+Seperti yang Anda lihat pada gambar di atas, data yang “dibungkus” menjadi windowed dataset akan bergeser sebanyak x langkah. Tentunya hal tersebut dapat diatur sesuai dengan kebutuhan dan eksplorasi yang Anda lakukan. Jika Anda penasaran proses dari data time series secara utuh, perhatikan gambar berikut.
+
+Gambar di atas bertujuan untuk mengambil sebagian kecil dari data yang dapat berisi sebanyak N data, atau ukuran window dapat kita tentukan sebesar interval waktu tertentu, seperti satu minggu, tiga hari, dan lain sebagainya. 
+
+Catatan:
+
+_**Horizon**_: jumlah langkah waktu masa depan yang ingin kita prediksi.
+
+_**Window Size**_: jumlah langkah waktu yang akan kita gunakan untuk memprediksi masa depan (horizon).
+
+Misalnya, kita ingin menentukan ukuran window (window size) sebesar tujuh buah data. Nah, fitur-fitur pada window tersebut adalah setiap nilai yang ada pada window dan labelnya adalah nilai selanjutnya (horizon). Contohnya, kita memiliki tujuh buah data 1,2,3,4,5,6,7. Lalu, ukuran window yang kita pilih adalah tiga. Fitur dan label untuk window tersebut ditampilkan pada tabel di bawah. Perhatikan bahwa fitur 6 dan 7 tidak dimasukkan karena keduanya tidak ada nilai setelah 7.
+
+_To be honest_, ada dua pendekatan utama untuk melakukan forecasting pada data time series. Sebelumnya kita sudah mempelajari tentang sliding window, sekarang saatnya kita melebarkan sayap dengan mempelajari pendekatan lainnya, yaitu _expanding window_! 
+
+Dalam konteks time series, expanding window merupakan perhitungan statistik yang menghitung rata-rata dari data time series melalui ukuran window yang akan diperluas setiap waktunya. Berbeda dengan sliding window yang menggunakan analisis dengan ukuran tetap, expanding window ini akan terus memperbesar ukuran window mencakup semua analisis hingga titik waktu terakhir. Perhatikan gambar berikut.
+
+Dari sini, cukup jelas ya perbedaan dari sliding windows dan expanding windows? Untuk memperkuat ingatan, mari kita sedikit rekap perbedaannya menjadi seperti berikut.
+
+*   **Sliding Windows:** dalam pendekatan ini window akan bergerak maju dalam data time series dengan interval yang tetap. Setiap kali window bergeser maka data window baru dibuat dengan data yang berikutnya, dan data window lama diabaikan. 
+    
+*   **Expanding Windows:** dalam pendekatan expanding windows, window akan diperluas secara bertahap saat data time series berkembang. Setiap kali window diperluas, ia akan mencakup semua data sebelumnya ditambah satu titik data terbaru.
+    
+
+Perbedaan ini dapat diilustrasikan dengan contoh sederhana. Misalkan kita memiliki data time series harian tentang penjualan selama 100 hari.
+
+*   Dengan sliding windows, kita mungkin membuat window akan bergeser 30 hari. Jadi, kita akan memiliki 71 window dengan masing-masing window berisi 30 data.
+    
+*   Dengan expanding window, kita mungkin membuat jendela mulai dari data hari pertama hingga data di hari ke 100. Jadi, kita akan memiliki 100 jendela dengan ukuran bertambah setiap harinya.
+    
+
+Kedua pendekatan ini memiliki kegunaan dan aplikasi yang berbeda. Sliding windows sering digunakan dalam pemodelan dan prediksi untuk mengamati pola dan tren baru dalam data, sedangkan expanding windows sering digunakan dalam analisis retrospektif untuk menghitung statistik yang berkembang seiring waktu. 
+
+Namun, pada dunia machine learning tidak ada hal yang pasti sehingga kedua pendekatan ini perlu kita coba juga ya agar mendapatkan pengalaman dan hasil yang maksimal di setiap kasus yang sedang kita hadapi.
+
+### Matrik Evaluasi untuk Time Series
+
+Untuk mengevaluasi model time series, kita dapat menghitung error yang dibuat pada model seperti kita mengevaluasi model regresi. Yup, kita bisa mendapatkan error dengan menghitung jarak antara nilai prediksi model dan nilai sebenarnya.
+
+Ada beberapa metrik yang dapat dipakai dalam evaluasi model time series, seperti MSE, RMSE, MAE, MAPE, dan lain sebagainya. Namun, hal paling sederhana yang dapat kita lakukan adalah dengan menghitung error secara langsung.
+
+Mari kita asumsikan memiliki sebuah data aktual dan hasil prediksi (forecast) sebagai berikut.
+
+ActualForecast
+
+4.216
+
+4.266
+
+5.36
+
+5.415
+
+5.374
+
+5.437
+
+5.388
+
+5.338
+
+Dengan data di atas, mari kita lihat penggunaan contoh paling sederhana menghitung error secara manual menggunakan rumus berikut.
+
+error = forecast - actual
+
+Dengan menghitung secara manual seperti di atas, bukanlah itu terlihat sangat mudah? Mari kita hitung satu data.
+
+error = forecast - actual
+
+error = 4.266 - 4.216
+
+error = 0.050
+
+Seperti yang Anda lihat bahwa error yang kita dapatkan sangatlah kecil yaitu 0.05. Jika kita hitung terhadap seluruh data contoh yang ada, hasilnya seperti berikut.
+
+ActualForecastError
+
+4.216
+
+4.266
+
+0.050
+
+5.36
+
+5.415
+
+0.055
+
+5.374
+
+5.437
+
+0.063
+
+5.388
+
+5.338
+
+\-0.05
+
+Tentunya dengan segala kemudahan yang ada, metrik evaluasi di atas memiliki sebuah kelemahan yaitu rentan terhadap hasil negatif (minus) dan juga outlier. Lalu, bagaimana dengan metrik evaluasi yang lainnya? Yuk, kita bahas satu per satu.
+
+#### Mean Absolute Error
+
+Mean Absolute Error (MAE) berfungsi untuk mengukur seberapa dekat hasil prediksi suatu model dengan nilai sebenarnya. MAE mengukur rata-rata dari selisih absolut antara prediksi model dan nilai sebenarnya dari data yang diamati. Alih-alih membiarkan nilai apa adanya, pada MAE setiap nilai yang diambil sifatnya absolut sehingga nilai negatif hilang. Berikut adalah penjelasan detail tentang Mean Absolute Error.
+
+MAE dihitung dengan menjumlahkan selisih absolut antara setiap prediksi individu dan nilai sebenarnya, kemudian dibagi dengan jumlah total observasi yang dapat direpresentasikan sebagai berikut.
+
+Keterangan:
+
+*   n adalah jumlah total observasi atau sampel.
+    
+*   yi adalah nilai aktual atau nilai sebenarnya dari observasi ke-i.
+    
+*   Ŷi adalah nilai prediksi model untuk observasi ke-i.
+    
+
+Dengan menggunakan MAE, kita memiliki beberapa keuntungan seperti berikut.
+
+*   Interpretasi yang Sederhana: MAE memiliki interpretasi yang sederhana dan mudah dimengerti.
+    
+*   Robust terhadap Outlier: MAE tidak terlalu sensitif terhadap outlier dalam data karena menggunakan nilai absolut.
+    
+
+Diferensial: MAE dapat dengan mudah dihitung dan diferensial, membuatnya cocok untuk digunakan dalam proses optimasi.
+
+#### Mean Square Error
+
+Mean Square Error (MSE) adalah salah satu metrik evaluasi yang umum digunakan dalam statistik dan machine learning. Fungsi dari MSE adalah untuk mengukur seberapa baik suatu model dalam memetakan nilai prediksi ke nilai sebenarnya dengan menggunakan kuadrat kesalahan sebagai dasar perhitungan. MSE merupakan metrik yang sangat populer di kalangan machine learning engineer. 
+
+Pada MSE, kita memangkatkan seluruh error, kemudian menghitung rata-ratanya. Kenapa dipangkatkan? Karena error yang bernilai negatif dapat diubah menjadi positif. Bayangkan jika kita memiliki error katakanlah 2 dan -2. Jika kita menjumlahkan kedua error tersebut, hasilnya adalah 0 yang menunjukkan bahwa tidak ada error. Dengan memangkatkan 2 dan -2, nilai tersebut menjadi 4 dan 4. Ketika menjumlahkannya, error kita bukan 0 melainkan 8. Berikut rumus yang digunakan untuk menghitung MSE.
+
+Keterangan:
+
+*   n adalah jumlah total observasi atau sampel.
+    
+*   yi adalah nilai aktual atau nilai sebenarnya dari observasi ke-i.
+    
+*   Ŷi adalah nilai prediksi model untuk observasi ke-i.
+    
+
+Keuntungan menggunakan MSE yaitu memiliki perhitungan derivatif yang mudah. MSE memiliki turunan matematis yang mudah dan membuatnya cocok untuk digunakan dalam proses optimasi.
+
+Namun, MSE memiliki sebuah kekurangan yaitu MSE sangat sensitif terhadap outlier dalam data karena kuadrat kesalahan dapat memberikan bobot yang sangat besar pada nilai yang jauh dari rata-rata.
+
+#### Root Mean Square error
+
+Root Mean Square Error (RMSE) adalah salah satu metrik evaluasi yang sering digunakan dalam pemodelan statistik dan machine learning, Fungsi dari RMSE adalah untuk mengukur seberapa baik suatu model memetakan nilai prediksi ke nilai sebenarnya dengan menghitung akar kuadrat dari rata-rata dari kuadrat kesalahan. RMSE dihitung dengan mengambil akar kuadrat dari rata-rata dari kuadrat selisih antara setiap prediksi individu dan nilai sebenarnya.
+
+Keterangan:
+
+*   n adalah jumlah total observasi atau sampel.
+    
+*   yi adalah nilai aktual atau nilai sebenarnya dari observasi ke-i.
+    
+*   Ŷi adalah nilai prediksi model untuk observasi ke-i.
+    
+
+Kurang lebihnya RMSE memiliki karakteristik yang mirip dengan MSE sehingga memiliki kelebihan dan kekurangan yang serupa juga. Mari kita langsung beranjak ke contoh perhitungan menggunakan RMSE sebagai metrik evaluasi.
+
+#### Mean Absolute Percentage Error
+
+Mean Absolute Percentage Error (MAPE) adalah metrik evaluasi yang digunakan untuk mengukur seberapa baik suatu model memprediksi dengan mengevaluasi rata-rata persentase kesalahan absolut dari semua prediksi terhadap nilai sebenarnya. MAPE umumnya digunakan dalam konteks ramalan atau prediksi di mana penting untuk memahami seberapa besar kesalahan relatif dari prediksi terhadap nilai sebenarnya. MAPE dihitung dengan menjumlahkan persentase kesalahan absolut dari setiap prediksi data dan nilai sebenarnya, kemudian dibagi dengan jumlah total observasi
+
+Keterangan
+
+*   n adalah jumlah total observasi atau sampel.
+    
+*   yi adalah nilai aktual atau nilai sebenarnya dari observasi ke-i.
+    
+*   Ŷi adalah nilai prediksi model untuk observasi ke-i.
+    
+
+Keuntungan menggunakan MAPE yaitu memiliki interpretasi yang mudah dimengerti dalam bentuk persentase sehingga mudah untuk dicerna dan dievaluasi oleh developer.
+
+Namun, dengan menggunakan MAPE, ada sebuah kelemahan yaitu MAPE tidak stabil ketika terdapat nilai sebenarnya yang mendekati nol karena pembaginya adalah nilai sebenarnya. Kesimpulannya, penggunaan MAPE mungkin tidak cocok untuk kasus ketika nilai sebenarnya memiliki variabilitas yang rendah atau mendekati nol.
